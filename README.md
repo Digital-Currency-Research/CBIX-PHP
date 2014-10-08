@@ -33,7 +33,7 @@ Simply call the make method on the Cbix class.
 
 ### Methods
 
-All methods of the CBIX API are supported and more will be added when fully supported.
+All methods of the [CBIX API](https://www.cbix.ca/api) are supported and more will be added when fully supported.
 
     $index = $cbix->index;
     $history = $cbix->history(['limit=100']);
@@ -44,6 +44,14 @@ All methods of the CBIX API are supported and more will be added when fully supp
 
 If there are any issues during the API request a CbixException will be thrown which can be caught
 and managed according to your application needs.
+
+    try {
+        $index = $cbix->index();
+        echo $index->index->value;
+    } catch (CbixException $e) {
+        //There was an error more information in $e->getMessage();
+        var_dump($e->getMessage());
+    }
 
 ## Unit Tests
 
