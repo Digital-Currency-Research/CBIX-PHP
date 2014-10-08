@@ -25,6 +25,21 @@ After installing, you need to require Composer's autoloader:
 require 'vendor/autoload.php';
 ```
 
+### Setup
+
+Simply call the make method on the Cbix class.
+
+    $cbix = Cbix::make();
+
+### Methods
+
+All methods of the CBIX API are supported and more will be added when fully supported.
+
+    $index = $cbix->index;
+    $history = $cbix->history(['limit=100']);
+    $convert = $cbix->convert(500, 'CAD', 'BTC');
+    $news = $cbix->news();
+
 ## Exceptions
 
 If there are any issues during the API request a CbixException will be thrown which can be caught
