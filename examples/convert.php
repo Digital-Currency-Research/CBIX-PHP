@@ -13,13 +13,14 @@ $cbix = Cbix::make();
  */
 
 try {
-    $result = $cbix->convert(500); //Converts 500 CAD to BTC using defaults
+    $result = $cbix->convert(500, 'asas'); //Converts 500 CAD to BTC using defaults
     //var_dump($result);
 
-    if (isset($result->success) && $result->success !== true)
+    if ($result->success !== true)
     {
         //Validation errors
         var_dump($result->messages);
+        die();
     }
 
     echo $result->result;
