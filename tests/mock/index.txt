@@ -1,0 +1,4 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"source":"Canadian Bitcoin Index","source_link":"https:\/\/www.cbix.ca","date_time":"2014-10-08 21:33:00","timestamp":1412803980,"index":{"value":"390.57","change_24hour":"27.02","change_percent_24hour":"7.43","high_24hour":"397.69","low_24hour":"361.24","volume_24hour":"679.86"},"exchanges":[{"name":"Cavirtex","link":"https:\/\/www.cavirtex.com\/Z\/52248","bid":"386.95","ask":"387.00","last":"387.00","volume_24hour":"374.51"},{"name":"Vault of Satoshi","link":"https:\/\/www.vaultofsatoshi.com\/?a_aid=52248","bid":"390.06","ask":"398.00","last":"391.99","volume_24hour":"152.53"},{"name":"QuadrigaCX","link":"http:\/\/www.quadrigacx.com\/?ref=kicn6dh8tmfuk3gwfcd3jv16","bid":"389.61","ask":"391.50","last":"391.50","volume_24hour":"152.56"}]}

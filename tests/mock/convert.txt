@@ -1,0 +1,4 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"source":"Canadian Bitcoin Index","source_link":"https:\/\/www.cbix.ca","result":0.25617379,"meta":{"from":"CAD","to":"BTC","index_value":390.36,"index_generated":"2014-10-08 21:42:00"}}
