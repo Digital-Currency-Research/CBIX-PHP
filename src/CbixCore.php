@@ -3,6 +3,10 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
+/**
+ * Class CbixCore
+ * @package Cbix
+ */
 class CbixCore implements CbixInterface
 {
     /**
@@ -18,6 +22,10 @@ class CbixCore implements CbixInterface
         $this->client = $client;
     }
 
+    /**
+     * @return mixed
+     * @throws CbixException
+     */
     public function index()
     {
         try {
@@ -29,6 +37,11 @@ class CbixCore implements CbixInterface
         return json_decode($response->getBody());
     }
 
+    /**
+     * @param array $options
+     * @return mixed
+     * @throws CbixException
+     */
     public function history($options = [])
     {
         $limit = isset($options['limit']) ? $options['limit'] : '';
@@ -42,6 +55,13 @@ class CbixCore implements CbixInterface
         return json_decode($response->getBody());
     }
 
+    /**
+     * @param $amount
+     * @param string $from
+     * @param string $to
+     * @return mixed
+     * @throws CbixException
+     */
     public function convert($amount, $from = 'CAD', $to = 'BTC')
     {
         try {
@@ -53,6 +73,10 @@ class CbixCore implements CbixInterface
         return json_decode($response->getBody());
     }
 
+    /**
+     * @return mixed
+     * @throws CbixException
+     */
     public function news()
     {
         try {

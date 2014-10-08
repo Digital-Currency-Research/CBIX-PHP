@@ -16,8 +16,7 @@ try {
     $result = $cbix->convert(500, 'asas'); //Converts 500 CAD to BTC using defaults
     //var_dump($result);
 
-    if ($result->success !== true)
-    {
+    if ($result->success !== true) {
         //Validation errors
         var_dump($result->messages);
         die();
