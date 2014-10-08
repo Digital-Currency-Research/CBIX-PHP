@@ -1,6 +1,10 @@
 CBIX-PHP
 ========
 
+[![Build Status](https://travis-ci.org/Digital-Currency-Research/CBIX-PHP.svg)](https://travis-ci.org/Digital-Currency-Research/CBIX-PHP)
+[![Code Climate](https://codeclimate.com/github/Digital-Currency-Research/CBIX-PHP/badges/gpa.svg)](https://codeclimate.com/github/Digital-Currency-Research/CBIX-PHP)
+[![Test Coverage](https://codeclimate.com/github/Digital-Currency-Research/CBIX-PHP/badges/coverage.svg)](https://codeclimate.com/github/Digital-Currency-Research/CBIX-PHP)
+
 This library provides a simple PHP interface to the [Canadian Bitcoin Index API](https://www.cbix.ca/api).
 
 ### Installing via Composer
