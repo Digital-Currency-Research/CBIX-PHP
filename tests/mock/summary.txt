@@ -1,0 +1,4 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{"source":"Canadian Bitcoin Index","source_link":"https:\/\/www.cbix.ca","success":true,"data":{"index":425.32,"total_coins":13379325,"market_cap":5690494509,"volume_7_day":3739,"high_52_week":1136.86,"low_52_week":128.95,"percentage_return_52_week":229.32,"percentage_return_year_to_date":-45.21,"volatility":[],"sentiment":[]}}

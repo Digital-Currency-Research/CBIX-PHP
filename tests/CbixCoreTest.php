@@ -123,4 +123,61 @@ class ChainCoreTest extends \Guzzle\Tests\GuzzleTestCase
         $cbix = new Cbix\CbixCore($this->client);
         $cbix->news();
     }
+
+    public function test_summary_returns_correct_response()
+    {
+        $mock = new GuzzleHttp\Subscriber\Mock([
+            __DIR__ . '/mock/summary.txt'
+        ]);
+
+        $this->client->getEmitter()->attach($mock);
+
+        $cbix = new Cbix\CbixCore($this->client);
+        $result = $cbix->summary();
+
+        $this->assertEquals('Canadian Bitcoin Index', $result->source);
+    }
+
+    public function test_summary_throws_an_exception()
+    {
+        $this->setExpectedException('Cbix\CbixException');
+
+        $mock = new GuzzleHttp\Subscriber\Mock([
+            new GuzzleHttp\Message\Response(400),
+        ]);
+
+        $this->client->getEmitter()->attach($mock);
+
+        $cbix = new Cbix\CbixCore($this->client);
+        $cbix->summary();
+    }
+
+    public function test_orderbook_returns_correct_response()
+    {
+        $mock = new GuzzleHttp\Subscriber\Mock([
+            __DIR__ . '/mock/orderbook.txt'
+        ]);
+
+        $this->client->getEmitter()->attach($mock);
+
+        $cbix = new Cbix\CbixCore($this->client);
+        $result = $cbix->orderbook(['limit' => 25]);
+
+        $this->assertEquals('Canadian Bitcoin Index', $result->source);
+        $this->assertCount(25, $result->data->asks);
+    }
+
+    public function test_orderbook_throws_an_exception()
+    {
+        $this->setExpectedException('Cbix\CbixException');
+
+        $mock = new GuzzleHttp\Subscriber\Mock([
+            new GuzzleHttp\Message\Response(400),
+        ]);
+
+        $this->client->getEmitter()->attach($mock);
+
+        $cbix = new Cbix\CbixCore($this->client);
+        $cbix->orderbook(['limit' => 25]);
+    }
 }

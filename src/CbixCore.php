@@ -87,4 +87,37 @@ class CbixCore implements CbixInterface
 
         return json_decode($response->getBody());
     }
+
+    /**
+     * @return mixed
+     * @throws CbixException
+     */
+    public function summary()
+    {
+        try {
+            $response = $this->client->get("summary");
+        } catch (RequestException $e) {
+            throw new CbixException($e->getResponse()->getbody());
+        }
+
+        return json_decode($response->getBody());
+    }
+
+    /**
+     * @param array $options
+     * @return mixed
+     * @throws CbixException
+     */
+    public function orderbook($options = [])
+    {
+        $limit = isset($options['limit']) ? $options['limit'] : '';
+
+        try {
+            $response = $this->client->get("orderbook?limit={$limit}");
+        } catch (RequestException $e) {
+            throw new CbixException($e->getResponse()->getbody());
+        }
+
+        return json_decode($response->getBody());
+    }
 }

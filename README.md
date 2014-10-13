@@ -39,6 +39,8 @@ All methods of the [CBIX API](https://www.cbix.ca/api) are supported and more wi
     $history = $cbix->history(['limit=100']);
     $convert = $cbix->convert(500, 'CAD', 'BTC');
     $news = $cbix->news();
+    $summary = $cbix->summary();
+    $orderbook = $cbix->orderbook(['limit=25']);
 
 ## Exceptions
 
