@@ -120,4 +120,22 @@ class CbixCore implements CbixInterface
 
         return json_decode($response->getBody());
     }
+
+    /**
+     * @param array $options
+     * @return mixed
+     * @throws CbixException
+     */
+    public function volatility($options = [])
+    {
+        $limit = isset($options['limit']) ? $options['limit'] : '';
+
+        try {
+            $response = $this->client->get("volatility?limit={$limit}");
+        } catch (RequestException $e) {
+            throw new CbixException($e->getResponse()->getbody());
+        }
+
+        return json_decode($response->getBody());
+    }
 }

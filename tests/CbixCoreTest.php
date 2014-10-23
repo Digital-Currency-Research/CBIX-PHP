@@ -180,4 +180,32 @@ class ChainCoreTest extends \Guzzle\Tests\GuzzleTestCase
         $cbix = new Cbix\CbixCore($this->client);
         $cbix->orderbook(['limit' => 25]);
     }
+
+    public function test_volatility_returns_correct_response()
+    {
+        $mock = new GuzzleHttp\Subscriber\Mock([
+            __DIR__ . '/mock/volatility.txt'
+        ]);
+
+        $this->client->getEmitter()->attach($mock);
+
+        $cbix = new Cbix\CbixCore($this->client);
+        $result = $cbix->volatility(['limit' => 10]);
+
+        $this->assertCount(10, $result->series);
+    }
+
+    public function test_volatility_throws_an_exception()
+    {
+        $this->setExpectedException('Cbix\CbixException');
+
+        $mock = new GuzzleHttp\Subscriber\Mock([
+            new GuzzleHttp\Message\Response(400),
+        ]);
+
+        $this->client->getEmitter()->attach($mock);
+
+        $cbix = new Cbix\CbixCore($this->client);
+        $cbix->volatility(['limit' => 10]);
+    }
 }

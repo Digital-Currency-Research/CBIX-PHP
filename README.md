@@ -41,6 +41,7 @@ All methods of the [CBIX API](https://www.cbix.ca/api) are supported and more wi
     $news = $cbix->news();
     $summary = $cbix->summary();
     $orderbook = $cbix->orderbook(['limit=25']);
+    $volatility = $cbix->volatility(['limit=10']);
 
 ## Exceptions
 
