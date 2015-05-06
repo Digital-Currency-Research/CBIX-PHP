@@ -35,7 +35,7 @@ Simply call the make method on the Cbix class.
 
 All methods of the [CBIX API](https://www.cbix.ca/api) are supported and more will be added when fully supported.
 
-    $index = $cbix->index;
+    $index = $cbix->index();
     $history = $cbix->history(['limit=100']);
     $convert = $cbix->convert(500, 'CAD', 'BTC');
     $news = $cbix->news();
